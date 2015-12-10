@@ -8,7 +8,9 @@ sv:
         donation_amount: Antal
   campaigns:
     show:
+      current_funding: "%{total_donation_amount} av %{funding_goal}"
       label_contact_person: Kontaktperson
+      label_funding_status: Insamlat hittills
   donations:
     create:
       flash_successful_donation: Tack för ditt stöd!

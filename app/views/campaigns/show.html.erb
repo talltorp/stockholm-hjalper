@@ -2,6 +2,18 @@
   <%= @campaign.title %>
 </h1>
 <div>
+  <h2>
+    <%= t("campaigns.show.label_funding_status") %>
+  </h2>
+  <p>
+    <%= t("campaigns.show.current_funding", {
+      total_donation_amount: @campaign.total_donation_amount,
+      funding_goal: @campaign.funding_goal
+    })
+    %>
+  </p>
+</div>
+<div>
   <%= @campaign.preamble %>
 </div>
 <div>
