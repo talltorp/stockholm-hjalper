@@ -7,6 +7,10 @@ class Campaign < ActiveRecord::Base
     where(expired: false, fully_funded: false)
   end
 
+  def self.closed_campaigns
+    where("expired = ? OR fully_funded = ?", true, true)
+  end
+
   def total_donation_amount
     donations.sum(:donation_amount)
   end
