@@ -24,12 +24,12 @@
   <%= @campaign.body_text %>
 </div>
 <div>
-  <%= simple_form_for(@campaign.donations.build, url: campaign_donations_path(@campaign)) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :phone, as: :tel %>
-    <%= f.input :email, as: :email %>
-    <%= f.input :donation_amount, as: :integer %>
-    <%= f.input :message %>
+  <%= simple_form_for(@donation, url: campaign_donations_path(@campaign)) do |f| %>
+    <%= f.input :name, value: @donation.name %>
+    <%= f.input :phone, as: :tel, value: @donation.phone %>
+    <%= f.input :email, as: :email, value: @donation.email %>
+    <%= f.input :donation_amount, as: :integer, value: @donation.donation_amount %>
+    <%= f.input :message, value: @donation.message %>
     <%= f.button :submit %>
   <% end %>
 </div>
