@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 module StockholmHjalper
   class Application < Rails::Application
     config.i18n.enforce_available_locales = true
+    config.i18n.fallbacks = [:en]
 
     config.generators do |generate|
       generate.helper false

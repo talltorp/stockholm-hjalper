@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.2"
 
+gem "activeadmin", "~> 1.0.0.pre2"
 gem "airbrake"
 gem "autoprefixer-rails"
 gem "bourbon", "~> 4.2.0"
