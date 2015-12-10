@@ -1,0 +1,23 @@
+<h1>
+  <%= @campaign.title %>
+</h1>
+<div>
+  <%= @campaign.preamble %>
+</div>
+<div>
+  <%= @campaign.body_text %>
+</div>
+<div>
+  <%= t("campaigns.show.label_contact_person") %>
+  <%= @campaign.body_text %>
+</div>
+<div>
+  <%= simple_form_for(@campaign.donations.build, url: campaign_donations_path(@campaign)) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :phone, as: :tel %>
+    <%= f.input :email, as: :email %>
+    <%= f.input :donation_amount, as: :integer %>
+    <%= f.input :message %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+sv:
+  activerecord:
+    attributes:
+      donation:
+        name: Namn
+        phone: Telefon
+        email: E-post
+        donation_amount: Antal
+  campaigns:
+    show:
+      label_contact_person: Kontaktperson
+  donations:
+    create:
+      flash_successful_donation: Tack för ditt stöd!
