@@ -1,0 +1,33 @@
+<h1>
+  <%= t("email.notify_pm_of_donation.header") %>
+</h1>
+<p>
+  <b>
+    <%= t("email.notify_pm_of_donation.label_donation_amount") %>
+  </b>
+  <%= @donation.donation_amount %>
+</p>
+<p>
+  <b>
+    <%= t("email.notify_pm_of_donation.label_donation_name") %>
+  </b>
+  <%= @donation.name %>
+</p>
+<p>
+  <b>
+    <%= t("email.notify_pm_of_donation.label_donation_phone") %>
+  </b>
+  <%= @donation.phone %>
+</p>
+<p>
+  <b>
+    <%= t("email.notify_pm_of_donation.label_donation_email") %>
+  </b>
+  <%= @donation.email %>
+</p>
+<p>
+  <b>
+    <%= t("email.notify_pm_of_donation.label_donation_message") %>
+  </b>
+  <%= @donation.message %>
+</p>

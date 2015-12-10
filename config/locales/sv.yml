@@ -14,3 +14,17 @@ sv:
   donations:
     create:
       flash_successful_donation: Tack för ditt stöd!
+  email:
+    notify_pm_of_donation:
+      subject: Ny donation
+      header: En ny donation
+      label_donation_amount: Donerat
+      label_donation_name: Namn
+      label_donation_phone: Telefon
+      label_donation_email: Email
+      label_donation_message: Meddelande
+    send_thank_you_to_donor:
+      subject: Tack för donationen!
+      header: Tack för att du hjälper!
+      thank_you_for_donating_to: "Donation till: %{campaign}"
+      amount_donated: "Donerat: %{donation_amount}"

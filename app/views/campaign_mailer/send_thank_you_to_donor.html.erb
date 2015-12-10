@@ -1,0 +1,13 @@
+<h1>
+  <%= t("email.send_thank_you_to_donor.header") %>
+</h1>
+<p>
+  <%= t("email.send_thank_you_to_donor.thank_you_for_donating_to", {
+    campaign: @donation.campaign.title
+  }) %>
+</p>
+<p>
+  <%= t("email.send_thank_you_to_donor.amount_donated", {
+    donation_amount: @donation.donation_amount
+  }) %>
+</p>
