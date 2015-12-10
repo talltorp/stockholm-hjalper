@@ -1,6 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe Campaign, :type => :model do
+  describe "when donations match the funding goal" do
+    it "sets the campaign as completed" do
+      campaign = create(:campaign, funding_goal: 4)
+      campaign.donations << create(:donation, donation_amount: 2)
+      campaign.save
+
+      campaign.donations << create(:donation, donation_amount: 2)
+      campaign.save
+
+      expect(campaign.fully_funded?).to be true
+    end
+  end
+
+  describe "when donations do not match the funding goal" do
+    it "keeps the campaign open" do
+      campaign = create(:campaign, funding_goal: 4)
+      campaign.donations << create(:donation, donation_amount: 2)
+      campaign.save
+
+      campaign.donations << create(:donation, donation_amount: 1)
+      campaign.save
+
+      expect(campaign.fully_funded?).to be false
+    end
+  end
+
   describe "#total_donation_amount" do
     context "with no donations" do
       it "defaults to 0" do
