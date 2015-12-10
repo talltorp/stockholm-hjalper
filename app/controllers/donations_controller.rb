@@ -6,7 +6,7 @@ class DonationsController < ApplicationController
 
     if add_donation_to_campaign(@donation, @campaign)
       flash[:notice] = I18n.t("donations.create.flash_successful_donation")
-      #redirect_to campaign_path(@campaign)
+      redirect_to campaign_path(@campaign)
     else
       flash[:error] = @donation.errors.full_messages.to_sentence
       render "campaigns/show"
