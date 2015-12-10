@@ -27,6 +27,19 @@ RSpec.describe Campaign, :type => :model do
     end
   end
 
+  describe ".currently_active" do
+    it "fetches campaigns that are not fully funded and have not exired" do
+      create(:campaign, expired: true, fully_funded: false)
+      create(:campaign, expired: false, fully_funded: false)
+      create(:campaign, expired: false, fully_funded: true)
+      create(:campaign, expired: false, fully_funded: false)
+
+      active_campaigns = Campaign.currently_active
+
+      expect(active_campaigns.length).to be 2
+    end
+  end
+
   describe "#total_donation_amount" do
     context "with no donations" do
       it "defaults to 0" do

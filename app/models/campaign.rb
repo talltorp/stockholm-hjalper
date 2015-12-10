@@ -3,6 +3,10 @@ class Campaign < ActiveRecord::Base
 
   before_validation :set_to_completed_if_fully_funded
 
+  def self.currently_active
+    where(expired: false, fully_funded: false)
+  end
+
   def total_donation_amount
     donations.sum(:donation_amount)
   end
