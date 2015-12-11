@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210154357) do
+ActiveRecord::Schema.define(version: 20151211082132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 20151210154357) do
   end
 
   add_index "donations", ["campaign_id"], name: "index_donations_on_campaign_id", using: :btree
+
+  create_table "drop_off_locations", force: :cascade do |t|
+    t.string  "name"
+    t.string  "address"
+    t.text    "opening_hours"
+    t.integer "campaign_id"
+  end
+
+  add_index "drop_off_locations", ["campaign_id"], name: "index_drop_off_locations_on_campaign_id", using: :btree
 
   add_foreign_key "donations", "campaigns"
 end
