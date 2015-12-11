@@ -7,7 +7,7 @@ ActiveAdmin.setup do |config|
   config.site_title = "Stockholm Hjalper"
   config.before_filter do
     authenticate_or_request_with_http_basic("Whatever") do |name, password|
-      name == ENV.fetch("ADMIN_USERNAME" && password == "ADMIN_PASSWORD"
+      name == ENV.fetch("ADMIN_USERNAME") && password == ENV.fetch("ADMIN_PASSWORD")
     end
   end
 
