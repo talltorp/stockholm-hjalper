@@ -17,12 +17,30 @@
   <%= @campaign.preamble %>
 </div>
 <div>
-  <%= @campaign.body_text %>
+  <%= simple_format(@campaign.body_text) %>
 </div>
 <div>
   <%= t("campaigns.show.label_contact_person") %>
-  <%= @campaign.body_text %>
+  <%= @campaign.contact_person %>
 </div>
+<% if @campaign.drop_off_locations.present? %>
+  <div>
+    <%= t("campaigns.show.label_drop_off_locations") %>
+    <% @campaign.drop_off_locations.each do | location | %>
+      <div>
+        <b>
+          <%= location.name %>
+        </b>
+      </div>
+      <div>
+        <%= location.address %>
+      </div>
+      <div>
+        <%= location.opening_hours %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 <div>
   <%= simple_form_for(@donation, url: campaign_donations_path(@campaign)) do |f| %>
     <%= f.input :name, value: @donation.name %>

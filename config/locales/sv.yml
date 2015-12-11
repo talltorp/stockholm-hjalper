@@ -10,6 +10,7 @@ sv:
     show:
       current_funding: "%{total_donation_amount} av %{funding_goal}"
       label_contact_person: Kontaktperson
+      label_drop_off_locations: Avlämningsplatser
       label_funding_status: Insamlat hittills
   donations:
     create:
