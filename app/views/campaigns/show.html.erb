@@ -1,60 +1,85 @@
-<h1>
-  <%= @campaign.title %>
-</h1>
-<div>
-  <h2>
-    <%= t("campaigns.show.label_funding_status") %>
-  </h2>
-  <p>
-    <%= t("campaigns.show.current_funding", {
-      total_donation_amount: @campaign.total_donation_amount,
-      funding_goal: @campaign.funding_goal
-    })
-    %>
-  </p>
-</div>
-<div>
-  <%= @campaign.preamble %>
-</div>
-<div>
-  <%= simple_format(@campaign.body_text) %>
-</div>
-<div>
-  <%= t("campaigns.show.label_contact_person") %>
-  <%= @campaign.contact_person %>
-</div>
-<% if @campaign.drop_off_locations.present? %>
-  <div>
-    <%= t("campaigns.show.label_drop_off_locations") %>
-    <% @campaign.drop_off_locations.each do | location | %>
-      <div>
-        <b>
-          <%= location.name %>
-        </b>
-      </div>
-      <div>
-        <%= location.address %>
-      </div>
-      <div>
-        <%= location.opening_hours %>
-      </div>
-    <% end %>
+<article>
+  <div class="funding-progress">
+    <%= @campaign.total_donation_amount %> / <%= @campaign.funding_goal %>
   </div>
-<% end %>
-<div>
-  <%= simple_form_for(@donation, url: campaign_donations_path(@campaign)) do |f| %>
-    <%= f.input :name, value: @donation.name %>
-    <%= f.input :phone, as: :tel, value: @donation.phone %>
-    <%= f.input :email, as: :email, value: @donation.email %>
-    <% if @campaign.available_pickup_times.present? %>
-      <%= label_tag("requested_pickup_time", t("campaigns.show.requested_pickup_time")) %>
-      <%= select_tag "requested_pickup_time",
-        options_from_collection_for_select(@campaign.available_pickup_times, "id", "pickup_as_string"),
-        prompt: "-----------------"
-      %>
-    <% end %>
-    <%= f.input :donation_amount, as: :integer, value: @donation.donation_amount %>
-    <%= f.input :message, value: @donation.message %>
-    <%= f.button :submit %>
-  <% end %>
-</div>
+  <div class="campaign-body">
+    <h1>
+      <%= @campaign.title %>
+    </h1>
+    <div class="preable">
+      <%= @campaign.preamble %>
+    </div>
+    <div class="body-content">
+      <%= simple_format(@campaign.body_text) %>
+    </div>
+    <div class="contact-person">
+      <div class="contact-name">
+        <h2>
+          <%= t("campaigns.show.label_contact_person") %>
+        </h2>
+        <div>
+          <%= @campaign.contact_person %>
+        </div>
+      </div>
+      <div class="contact-phone">
+      </div>
+    </div>
+    <div class="drop-off-locations">
+      <% if @campaign.drop_off_locations.present? %>
+        <div>
+          <h2>
+            <%= t("campaigns.show.label_drop_off_locations") %>
+          </h2>
+          <% @campaign.drop_off_locations.each do | location | %>
+            <div>
+              <%= location.name %>
+            </div>
+            <div>
+              <%= location.address %>
+            </div>
+            <div>
+              <%= location.opening_hours %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="donation-form">
+      <%= simple_form_for(@donation, url: campaign_donations_path(@campaign)) do |f| %>
+        <h2>
+        </h2>
+        <div class="one-input">
+          <%= f.input :name, value: @donation.name %>
+        </div>
+        <div class="two-inputs">
+          <div class="first">
+            <%= f.input :phone, as: :tel, value: @donation.phone %>
+          </div>
+          <div class="second">
+            <%= f.input :email, as: :email, value: @donation.email %>
+          </div>
+        </div>
+        <div class="two-inputs">
+          <div class="first">
+            <% if @campaign.available_pickup_times.present? %>
+              <%= label_tag("requested_pickup_time", t("campaigns.show.requested_pickup_time")) %>
+              <%= select_tag "requested_pickup_time",
+                options_from_collection_for_select(@campaign.available_pickup_times, "id", "pickup_as_string"),
+                prompt: "-----------------"
+              %>
+            <% end %>
+          </div>
+          <div class="second">
+            <%= f.input :donation_amount, as: :integer, value: @donation.donation_amount %>
+          </div>
+        </div>
+        <div class="one-input">
+          <%= f.input :message, value: @donation.message %>
+        </div>
+        <div class="submit-input">
+          <%= f.button :submit, value: t("campaigns.show.form_submit_button") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</article>

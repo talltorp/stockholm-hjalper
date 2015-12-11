@@ -11,6 +11,65 @@ section {
   @include outer-container();
 }
 
+.campaigns-index {
+  h1 {
+    @include pad();
+    text-align: center;
+  }
+}
+
+.campaigns-show {
+  article {
+    @include outer-container();
+    @include pad();
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .funding-progress {
+    @include span-columns(2);
+  }
+
+  .campaign-body {
+    @include span-columns(10);
+  }
+
+  .preable {
+    font-style: italic;
+  }
+
+  .contact-person {
+    @include span-columns(5 of 10)
+  }
+
+  .drop-off-locations {
+    @include span-columns(4 of 10)
+  }
+
+  .donation-form {
+    @include span-columns(10);
+
+    .two-inputs {
+      @include reset-display;
+
+      .first {
+        @include span-columns(5 of 10)
+      }
+
+      .second {
+        @include span-columns(5 of 10)
+      }
+    }
+
+    .submit-input {
+      text-align: right;
+    }
+  }
+
+}
+
 .campaign-grid-item {
   @include span-columns(4);
   margin-bottom: 1em;

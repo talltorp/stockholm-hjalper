@@ -1,6 +1,7 @@
 class CampaignsController < ApplicationController
   def index
-    @campaigns = Campaign.all
+    @active_campaigns = Campaign.currently_active
+    @expired_campaigns = Campaign.closed_campaigns
   end
 
   def show

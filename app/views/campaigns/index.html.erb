@@ -1,6 +1,34 @@
-<h1>Campigns</h1>
 <section>
-  <% @campaigns.each do | campaign | %>
+  <h1>
+    <%= t("campaigns.index.header_active_campaigns") %>
+  </h1>
+</section>
+<section>
+  <% @active_campaigns.each do | campaign | %>
+    <div class="campaign-grid-item">
+      <%= link_to(campaign_path(campaign)) do %>
+        <div class="item-header">
+          <h2>
+            <%= campaign.title %>
+          </h2>
+          <p>
+            <%= campaign.preamble %>
+          </p>
+        </div>
+        <div class="funding-progress">
+          <%= campaign.total_donation_amount %> / <%= campaign.funding_goal %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</section>
+<section>
+  <h1>
+    <%= t("campaigns.index.header_expired_campaigns") %>
+  </h1>
+</section>
+<section>
+  <% @expired_campaigns.each do | campaign | %>
     <div class="campaign-grid-item">
       <%= link_to(campaign_path(campaign)) do %>
         <div class="item-header">

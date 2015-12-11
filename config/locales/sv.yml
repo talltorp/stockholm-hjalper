@@ -7,8 +7,12 @@ sv:
         email: E-post
         donation_amount: Antal
   campaigns:
+    index:
+      header_active_campaigns: Pågående kampanjer
+      header_expired_campaigns: Avslutade kampanjer
     show:
       current_funding: "%{total_donation_amount} av %{funding_goal}"
+      form_submit_button: Skicka
       label_contact_person: Kontaktperson
       label_drop_off_locations: Avlämningsplatser
       label_funding_status: Insamlat hittills
