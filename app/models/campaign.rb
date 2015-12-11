@@ -20,7 +20,7 @@ class Campaign < ActiveRecord::Base
   private
 
   def set_to_completed_if_fully_funded
-    if total_donation_amount == funding_goal
+    if total_donation_amount >= funding_goal
       self.fully_funded = true
     end
   end
