@@ -18,7 +18,7 @@ gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
 gem "rack-canonical-host"
-gem "rails", "4.2.1"
+gem "rails", "4.2.2"
 gem "rails_12factor", group: :production
 gem 'rails-i18n', '~> 4.0.0'
 gem "recipient_interceptor"
