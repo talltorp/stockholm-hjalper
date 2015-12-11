@@ -10,7 +10,6 @@ class DonationsController < ApplicationController
     else
       flash[:error] = @donation.errors.full_messages.to_sentence
       render "campaigns/show"
-      #redirect_to campaign_path(campaign)
     end
   end
 
