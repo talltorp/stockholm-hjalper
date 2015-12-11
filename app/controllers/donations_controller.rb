@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   def create
-    @donation = Donation.new(donation_params)
+    @donation = build_donation_from_params
     @campaign = Campaign.find(params[:campaign_id])
     @campaign.donations << @donation
 
@@ -14,6 +14,16 @@ class DonationsController < ApplicationController
   end
 
   private
+  def build_donation_from_params
+    donation = Donation.new(donation_params)
+
+    if params[:requested_pickup_time].present?
+      pickup_time = AvailablePickupTime.find(params[:requested_pickup_time])
+      donation.requested_pickup_time = pickup_time.pickup_as_string
+    end
+
+    donation
+  end
 
   def add_donation_to_campaign(donation, campaign)
     AddDonationToCampaign.new(donation: donation, campaign: campaign).call

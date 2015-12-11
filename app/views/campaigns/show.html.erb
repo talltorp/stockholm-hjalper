@@ -46,6 +46,13 @@
     <%= f.input :name, value: @donation.name %>
     <%= f.input :phone, as: :tel, value: @donation.phone %>
     <%= f.input :email, as: :email, value: @donation.email %>
+    <% if @campaign.available_pickup_times.present? %>
+      <%= label_tag("requested_pickup_time", t("campaigns.show.requested_pickup_time")) %>
+      <%= select_tag "requested_pickup_time",
+        options_from_collection_for_select(@campaign.available_pickup_times, "id", "pickup_as_string"),
+        prompt: "-----------------"
+      %>
+    <% end %>
     <%= f.input :donation_amount, as: :integer, value: @donation.donation_amount %>
     <%= f.input :message, value: @donation.message %>
     <%= f.button :submit %>

@@ -20,6 +20,7 @@ RSpec.describe CampaignMailer, :type => :mailer do
         phone: "0707111222",
         email: "goodperson@example.com",
         message: "this is the message",
+        requested_pickup_time: "Monday 12-17"
       })
       campaign.donations << donation
 
@@ -30,6 +31,7 @@ RSpec.describe CampaignMailer, :type => :mailer do
       expect(mail.body).to match(donation.phone)
       expect(mail.body).to match(donation.email)
       expect(mail.body).to match(donation.message)
+      expect(mail.body).to match(donation.requested_pickup_time)
     end
   end
 

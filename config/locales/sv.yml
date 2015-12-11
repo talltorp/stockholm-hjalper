@@ -12,6 +12,7 @@ sv:
       label_contact_person: Kontaktperson
       label_drop_off_locations: Avlämningsplatser
       label_funding_status: Insamlat hittills
+      requested_pickup_time: Upphämtningsdag/tid
   donations:
     create:
       flash_successful_donation: Tack för ditt stöd!
@@ -20,10 +21,11 @@ sv:
       subject: Ny donation
       header: En ny donation
       label_donation_amount: Donerat
-      label_donation_name: Namn
-      label_donation_phone: Telefon
       label_donation_email: Email
       label_donation_message: Meddelande
+      label_donation_name: Namn
+      label_donation_phone: Telefon
+      label_donation_requested_pickup_time: Vald upphämtningdtid
     send_thank_you_to_donor:
       subject: Tack för donationen!
       header: Tack för att du hjälper!
