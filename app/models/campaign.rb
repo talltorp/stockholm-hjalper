@@ -1,6 +1,7 @@
 class Campaign < ActiveRecord::Base
   has_many :donations
   has_many :drop_off_locations
+  has_many :available_pickup_times
 
   before_validation :set_to_completed_if_fully_funded
 
