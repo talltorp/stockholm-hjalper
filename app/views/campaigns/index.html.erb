@@ -1,16 +1,20 @@
 <h1>Campigns</h1>
-<% @campaigns.each do | campaign | %>
-  <div>
-    <%= link_to(campaign_path(campaign)) do %>
-      <div>
-        <%= campaign.title %>
-      </div>
-      <div>
-        <%= campaign.preamble %>
-      </div>
-      <div>
-        <%= campaign.funding_goal %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<section>
+  <% @campaigns.each do | campaign | %>
+    <div class="campaign-grid-item">
+      <%= link_to(campaign_path(campaign)) do %>
+        <div class="item-header">
+          <h2>
+            <%= campaign.title %>
+          </h2>
+          <p>
+            <%= campaign.preamble %>
+          </p>
+        </div>
+        <div class="funding-progress">
+          <%= campaign.total_donation_amount %> / <%= campaign.funding_goal %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</section>

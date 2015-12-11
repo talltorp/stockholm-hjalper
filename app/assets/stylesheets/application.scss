@@ -6,3 +6,23 @@
 @import "neat";
 @import "base/base";
 @import "refills/flashes";
+
+section {
+  @include outer-container();
+}
+
+.campaign-grid-item {
+  @include span-columns(4);
+  margin-bottom: 1em;
+
+  .item-header {
+    @include pad();
+    background-color: #3DB9B9;
+    color: #FFF;
+  }
+
+  .funding-progress {
+    background-color: #FFF;
+    color: #000;
+  }
+}
