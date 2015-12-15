@@ -12,6 +12,7 @@ $visual-grid: true;
 
 section {
   @include outer-container();
+  @include pad(1em);
 }
 
 .campaigns-index {
@@ -24,6 +25,7 @@ section {
 .campaigns-show {
   article {
     @include outer-container();
+    @include pad(1em);
   }
 
   h1 {
