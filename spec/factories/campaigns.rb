@@ -8,5 +8,6 @@ FactoryGirl.define do
     contact_email { Faker::Internet.email }
     body_text "MyText"
     ingress "MyText"
+    published true
   end
 end
