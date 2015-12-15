@@ -7,6 +7,6 @@ FactoryGirl.define do
     contact_phone "MyString"
     contact_email { Faker::Internet.email }
     body_text "MyText"
-    preamble "MyText"
+    ingress "MyText"
   end
 end
