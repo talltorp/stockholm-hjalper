@@ -14,8 +14,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render "flashes" -%>
-  <%= yield %>
+  <div class="wrapper-for-content-outside-of-footer">
+    <%= render "shared/navigation" %>
+    <%= render "flashes" -%>
+    <%= yield %>
+  </div>
+  <%= render "shared/footer" %>
   <%= render "javascript" %>
 </body>
 </html>

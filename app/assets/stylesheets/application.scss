@@ -8,6 +8,7 @@ $visual-grid: true;
 @import "base/base";
 @import "refills/flashes";
 @import "refills/navigation";
+@import "refills/footer";
 
 section {
   @include outer-container();

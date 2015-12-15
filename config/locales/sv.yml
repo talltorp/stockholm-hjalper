@@ -18,6 +18,10 @@ sv:
       label_funding_status: Insamlat hittills
       requested_pickup_time: Upphämtningsdag/tid
   common:
+    footer:
+      organisation_name: Stockholm Hjälper
+      contact_phone: "Kontakta oss: 08-55511100"
+      contact_email: "Email: info@stockholmhjalper.se"
     header:
       menu_item:
         about_us: Om organisationen
