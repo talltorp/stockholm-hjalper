@@ -1,4 +1,5 @@
 @charset "utf-8";
+$visual-grid: true;
 
 @import "normalize-rails";
 @import "bourbon";
@@ -21,7 +22,6 @@ section {
 .campaigns-show {
   article {
     @include outer-container();
-    @include pad();
   }
 
   h1 {
@@ -29,11 +29,23 @@ section {
   }
 
   .funding-progress {
-    @include span-columns(2);
+    @include media($large-screen-up) {
+      @include span-columns(2);
+    }
+
+    @include media($medium-screen-up) {
+      @include span-columns(2);
+    }
   }
 
   .campaign-body {
-    @include span-columns(10);
+    @include media($large-screen-up) {
+      @include span-columns(10);
+    }
+
+    @include media($medium-screen-up) {
+      @include span-columns(10);
+    }
   }
 
   .preable {
@@ -41,25 +53,63 @@ section {
   }
 
   .contact-person {
-    @include span-columns(5 of 10)
+    @include media($large-screen-up) {
+      @include span-columns(5 of 10);
+    }
+
+    @include media($medium-screen-up) {
+      @include span-columns(5 of 10);
+    }
   }
 
   .drop-off-locations {
-    @include span-columns(4 of 10)
+    @include media($large-screen-up) {
+      @include span-columns(5 of 10);
+      @include omega();
+    }
+
+    @include media($medium-screen-up) {
+      @include span-columns(5 of 10);
+      @include omega();
+    }
   }
 
   .donation-form {
-    @include span-columns(10);
+    @include media($large-screen-up) {
+      @include span-columns(10 of 10);
+    }
+
+    @include media($medium-screen-up) {
+      @include span-columns(10 of 10);
+    }
 
     .two-inputs {
-      @include reset-display;
+      @include media($large-screen-up) {
+        @include reset-display;
+      }
+
+      @include media($medium-screen-up) {
+        @include reset-display;
+      }
 
       .first {
-        @include span-columns(5 of 10)
+        @include media($large-screen-up) {
+          @include span-columns(5 of 10);
+        }
+
+        @include media($medium-screen-up) {
+          @include span-columns(5 of 10);
+        }
       }
 
       .second {
-        @include span-columns(5 of 10)
+        @include media($large-screen-up) {
+          @include span-columns(5 of 10);
+        }
+
+        @include media($medium-screen-up) {
+          @include span-columns(5 of 10);
+        }
       }
     }
 
@@ -71,17 +121,36 @@ section {
 }
 
 .campaign-grid-item {
-  @include span-columns(4);
+
+  @include media($large-screen-up) {
+    @include span-columns(4);
+    @include omega(3n);
+  }
+
+  @include media($medium-screen-up) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+
+  @include media($small-screen-up) {
+    @include span-columns(4);
+  }
+  background-color: #3DB9B9;
   margin-bottom: 1em;
+  min-height: 10em;
+  margin-bottom: 1em;
+  position: relative;
 
   .item-header {
     @include pad();
-    background-color: #3DB9B9;
     color: #FFF;
   }
 
   .funding-progress {
     background-color: #FFF;
+    bottom: 0px;
     color: #000;
+    width: 100%;
+    position: absolute;
   }
 }
