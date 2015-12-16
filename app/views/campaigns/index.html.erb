@@ -16,7 +16,19 @@
           </p>
         </div>
         <div class="funding-progress">
-          <%= campaign.total_donation_amount %> / <%= campaign.funding_goal %>
+          <div>
+            <canvas
+              id="campaign-<%= campaign.id %>"
+              width="30"
+              height="30"
+              data-id="<%= campaign.id %>"
+              data-funding-current="<%= campaign.total_donation_amount %>"
+              data-funding-left="<%= (campaign.funding_goal - campaign.total_donation_amount) %>"
+              ></canvas>
+          </div>
+          <div>
+            <%= campaign.total_donation_amount %> / <%= campaign.funding_goal %>
+          </div>
         </div>
       <% end %>
     </div>
@@ -40,7 +52,19 @@
           </p>
         </div>
         <div class="funding-progress">
-          <%= campaign.total_donation_amount %> / <%= campaign.funding_goal %>
+          <div>
+            <canvas
+              id="campaign-<%= campaign.id %>"
+              width="30"
+              height="30"
+              data-id="<%= campaign.id %>"
+              data-funding-current="<%= campaign.total_donation_amount %>"
+              data-funding-left="<%= (campaign.funding_goal - campaign.total_donation_amount) %>"
+              ></canvas>
+          </div>
+          <div>
+            <%= campaign.total_donation_amount %> / <%= campaign.funding_goal %>
+          </div>
         </div>
       <% end %>
     </div>
