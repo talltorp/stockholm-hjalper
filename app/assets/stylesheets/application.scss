@@ -33,6 +33,8 @@ section {
   }
 
   .funding-progress {
+    text-align: center;
+
     @include media($large-screen-up) {
       @include span-columns(2);
     }
