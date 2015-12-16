@@ -1,14 +1,18 @@
 <article>
   <div class="funding-progress">
-    <div>
-      <canvas
-        id="campaignShowChart"
-        width="100"
-        height="100"
-        data-funding-current="<%= @campaign.total_donation_amount %>"
-        data-funding-left="<%= (@campaign.funding_goal - @campaign.total_donation_amount) %>"
-        ></canvas>
-    </div>
+    <% if @campaign.fully_funded? %>
+      <%= image_tag "funding_completed" %>
+    <% else %>
+      <div>
+        <canvas
+          id="campaignShowChart"
+          width="100"
+          height="100"
+          data-funding-current="<%= @campaign.total_donation_amount %>"
+          data-funding-left="<%= (@campaign.funding_goal - @campaign.total_donation_amount) %>"
+          ></canvas>
+      </div>
+    <% end %>
     <div>
       <%= @campaign.total_donation_amount %> / <%= @campaign.funding_goal %>
     </div>
