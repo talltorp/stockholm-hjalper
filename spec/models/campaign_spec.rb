@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Campaign, :type => :model do
-  describe "when donations match the funding goal" do
+  describe "when confirmed donations match the funding goal" do
     it "sets the campaign as completed" do
       campaign = create(:campaign, funding_goal: 4)
-      campaign.donations << create(:donation, donation_amount: 2)
+      campaign.donations << create(:donation, donation_amount: 2, accepted: true)
       campaign.save
 
-      campaign.donations << create(:donation, donation_amount: 2)
+      campaign.donations << create(:donation, donation_amount: 2, accepted: true)
       campaign.save
 
       expect(campaign.fully_funded?).to be true
@@ -17,10 +17,23 @@ RSpec.describe Campaign, :type => :model do
   describe "when donations do not match the funding goal" do
     it "keeps the campaign open" do
       campaign = create(:campaign, funding_goal: 4)
-      campaign.donations << create(:donation, donation_amount: 2)
+      campaign.donations << create(:donation, donation_amount: 2, accepted: true)
       campaign.save
 
-      campaign.donations << create(:donation, donation_amount: 1)
+      campaign.donations << create(:donation, donation_amount: 1, accepted: true)
+      campaign.save
+
+      expect(campaign.fully_funded?).to be false
+    end
+  end
+
+  describe "when donations match the funding goal, but some are unconfirmed" do
+    it "sets the campaign as completed" do
+      campaign = create(:campaign, funding_goal: 4)
+      campaign.donations << create(:donation, donation_amount: 2, accepted: true)
+      campaign.save
+
+      campaign.donations << create(:donation, donation_amount: 2)
       campaign.save
 
       expect(campaign.fully_funded?).to be false
@@ -68,9 +81,9 @@ RSpec.describe Campaign, :type => :model do
     context "with three donations which makes up less than the maximum amount" do
       it "summarizes the donations" do
         campaign = create(:campaign, funding_goal: 10)
-        campaign.donations << create(:donation, donation_amount: 2)
-        campaign.donations << create(:donation, donation_amount: 3)
-        campaign.donations << create(:donation, donation_amount: 1)
+        campaign.donations << create(:donation, :accepted, donation_amount: 2)
+        campaign.donations << create(:donation, :accepted, donation_amount: 3)
+        campaign.donations << create(:donation, :accepted, donation_amount: 1)
         campaign.save
 
         total_donation_amount = campaign.total_donation_amount
@@ -82,10 +95,10 @@ RSpec.describe Campaign, :type => :model do
     context "with donations which equal the maximum amount" do
       it "summarizes the donations" do
         campaign = create(:campaign, funding_goal: 10)
-        campaign.donations << create(:donation, donation_amount: 2)
-        campaign.donations << create(:donation, donation_amount: 3)
-        campaign.donations << create(:donation, donation_amount: 1)
-        campaign.donations << create(:donation, donation_amount: 4)
+        campaign.donations << create(:donation, :accepted, donation_amount: 2)
+        campaign.donations << create(:donation, :accepted, donation_amount: 3)
+        campaign.donations << create(:donation, :accepted, donation_amount: 1)
+        campaign.donations << create(:donation, :accepted, donation_amount: 4)
         campaign.save
 
         total_donation_amount = campaign.total_donation_amount

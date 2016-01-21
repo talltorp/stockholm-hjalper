@@ -6,5 +6,9 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     message "MyText"
     accepted false
+
+    trait :accepted do
+      accepted true
+    end
   end
 end

@@ -14,7 +14,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def total_donation_amount
-    donations.sum(:donation_amount)
+    Donation.where(campaign_id: self.id, accepted: true).sum(:donation_amount)
   end
 
   private
