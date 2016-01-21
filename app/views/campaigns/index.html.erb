@@ -27,7 +27,11 @@
               ></canvas>
           </div>
           <div>
-            <%= campaign.total_donation_amount %> / <%= campaign.funding_goal %>
+            <% if campaign.amount_before_pickup %>
+              <%= t("campaigns.index.title_amount_before_pickup", {
+                amount_before_pickup: campaign.amount_before_pickup
+              }) %>
+            <% end %>
           </div>
         </div>
       <% end %>

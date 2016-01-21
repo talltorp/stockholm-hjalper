@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121121350) do
+ActiveRecord::Schema.define(version: 20160121134349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,11 +46,12 @@ ActiveRecord::Schema.define(version: 20160121121350) do
     t.string   "contact_email"
     t.text     "body_text"
     t.text     "ingress"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.boolean  "expired"
     t.date     "end_date"
     t.boolean  "published"
+    t.integer  "amount_before_pickup"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

@@ -10,6 +10,7 @@ sv:
     index:
       header_active_campaigns: Pågående kampanjer
       header_expired_campaigns: Avslutade kampanjer
+      title_amount_before_pickup: "Vi hämtar upp om ni skänker fler än %{amount_before_pickup}"
     show:
       current_funding: "%{total_donation_amount} av %{funding_goal}"
       form_submit_button: Skicka
@@ -17,6 +18,7 @@ sv:
       label_drop_off_locations: Avlämningsplatser
       label_funding_status: Insamlat hittills
       requested_pickup_time: Upphämtningsdag/tid
+      title_amount_before_pickup: "Om ni skänker fler än %{amount_before_pickup}, fyll i formuläret här under"
   common:
     footer:
       organisation_name: Stockholm Hjälper

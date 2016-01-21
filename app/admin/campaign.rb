@@ -5,7 +5,8 @@ ActiveAdmin.register Campaign do
 #
 permit_params :funding_goal, :fully_funded, :title,
   :contact_person, :contact_phone, :contact_email,
-  :body_text, :preamble, :expired, :end_date, :drop_off_address
+  :body_text, :ingress, :expired, :end_date, :drop_off_address,
+  :published, :amount_before_pickup
 #
 # or
 #
