@@ -39,20 +39,6 @@ describe AddDonationToCampaign do
       expect(pm_email_job[2]).to eql("deliver_now")
     end
 
-    it "sends an email to the donors email address" do
-      campaign = create_campaign_with_one_donation
-      donation = build(:donation, donation_amount: 1, email: "joe@example.com")
-      add_donation_to_campaign = AddDonationToCampaign.new(campaign: campaign, donation: donation)
-
-      add_donation_to_campaign.call
-      donor_email_job = enqueued_jobs.second[:args]
-
-      expect(donor_email_job[0]).to eql("CampaignMailer")
-      expect(donor_email_job[1]).to eql("send_thank_you_to_donor")
-      expect(donor_email_job[2]).to eql("deliver_now")
-
-    end
-
     def create_campaign_with_one_donation
       campaign = create(:campaign, funding_goal: 10)
       campaign.donations << create(:donation, donation_amount: 2)

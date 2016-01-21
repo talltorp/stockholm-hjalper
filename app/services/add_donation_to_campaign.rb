@@ -11,7 +11,6 @@ class AddDonationToCampaign
 
     if campaign.save
       CampaignMailer.notify_pm_of_donation(donation).deliver_later
-      CampaignMailer.send_thank_you_to_donor(donation).deliver_later
       true
     else
       false

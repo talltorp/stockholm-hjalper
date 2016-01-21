@@ -12,5 +12,6 @@ class ConfirmDonation
 
     donation.accepted = true
     donation.save
+    CampaignMailer.send_thank_you_to_donor(donation).deliver_later
   end
 end
