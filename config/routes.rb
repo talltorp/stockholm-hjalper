@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get "about-us", to: "application#about"
   root to: "campaigns#index"
 end

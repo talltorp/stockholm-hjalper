@@ -22,7 +22,7 @@ section {
   }
 }
 
-.campaigns-show {
+.campaigns-show, .application-about {
   article {
     @include outer-container();
     @include pad(1em);
