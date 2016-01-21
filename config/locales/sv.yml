@@ -27,6 +27,8 @@ sv:
         about_us: Om organisationen
         i_want_to_help: Jag vill hjälpa
   donations:
+    confirm:
+      succesfully_confirmed: Donationen är accepterad
     create:
       flash_successful_donation: Tack för ditt stöd!
   email:

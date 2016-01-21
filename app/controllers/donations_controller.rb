@@ -13,7 +13,16 @@ class DonationsController < ApplicationController
     end
   end
 
+  def confirm
+    @donation = Donation.find(params["id"])
+    confirmation_code = params["confirmation_code"]
+    confirm_donation = ConfirmDonation.new(donation: @donation)
+
+    confirm_donation.confirm_with(confirmation_code)
+  end
+
   private
+
   def build_donation_from_params
     donation = Donation.new(donation_params)
 
