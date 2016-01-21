@@ -11,6 +11,7 @@ describe ConfirmDonation do
     context "with a valid confirmation code" do
       it "sets the 'accepted' flag to true" do
         donation = create(:donation)
+        create_campaign_for(donation)
         confirm_donation = ConfirmDonation.new(donation: donation)
 
         confirm_donation.confirm_with(donation.confirmation_code)
@@ -21,6 +22,7 @@ describe ConfirmDonation do
 
       it "sends an email to the donors email address" do
         donation = create(:donation)
+        create_campaign_for(donation)
         confirm_donation = ConfirmDonation.new(donation: donation)
 
         confirm_donation.confirm_with(donation.confirmation_code)
@@ -29,7 +31,12 @@ describe ConfirmDonation do
         expect(donor_email_job[0]).to eql("CampaignMailer")
         expect(donor_email_job[1]).to eql("send_thank_you_to_donor")
         expect(donor_email_job[2]).to eql("deliver_now")
+      end
 
+      def create_campaign_for(donation)
+        campaign = create(:campaign)
+        campaign.donations << donation
+        campaign.save
       end
     end
 

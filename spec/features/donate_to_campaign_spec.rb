@@ -12,9 +12,9 @@ feature "donating to a campaign" do
     fill_in "donation_donation_amount", with: "34"
 
     click_button "Skicka"
-    campaign.reload
 
     simulate_pm_clicking_confirmation_link_in_email(campaign)
+    campaign.reload
 
     expect(campaign.fully_funded?).to be true
   end

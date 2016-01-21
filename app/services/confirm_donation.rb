@@ -11,7 +11,15 @@ class ConfirmDonation
     end
 
     donation.accepted = true
-    donation.save
-    CampaignMailer.send_thank_you_to_donor(donation).deliver_later
+    if donation.save
+      update_funding_total_in_campaign
+      CampaignMailer.send_thank_you_to_donor(donation).deliver_later
+    end
+  end
+
+  private
+
+  def update_funding_total_in_campaign
+    donation.campaign.save
   end
 end
