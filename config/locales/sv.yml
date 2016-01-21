@@ -17,6 +17,8 @@ sv:
       label_contact_person: Kontaktperson
       label_drop_off_locations: Avlämningsplatser
       label_funding_status: Insamlat hittills
+      label_status_expired: Avslutad
+      label_status_in_progress: Pågående
       requested_pickup_time: Upphämtningsdag/tid
       title_amount_before_pickup: "Om ni skänker fler än %{amount_before_pickup}, fyll i formuläret här under"
   common:
