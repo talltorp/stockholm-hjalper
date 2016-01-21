@@ -6,11 +6,11 @@ class Campaign < ActiveRecord::Base
   before_validation :set_to_completed_if_fully_funded
 
   def self.currently_active
-    where(expired: false, fully_funded: false)
+    where(expired: false)
   end
 
   def self.closed_campaigns
-    where("expired = ? OR fully_funded = ?", true, true)
+    where(expired: true)
   end
 
   def total_donation_amount

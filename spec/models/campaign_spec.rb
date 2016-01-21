@@ -41,11 +41,11 @@ RSpec.describe Campaign, :type => :model do
   end
 
   describe ".currently_active" do
-    it "fetches campaigns that are not fully funded and have not exired" do
+    it "fetches campaigns that have not exired" do
       create(:campaign, expired: true, fully_funded: false)
       create(:campaign, expired: false, fully_funded: false)
+      create(:campaign, expired: true, fully_funded: true)
       create(:campaign, expired: false, fully_funded: true)
-      create(:campaign, expired: false, fully_funded: false)
 
       active_campaigns = Campaign.currently_active
 
@@ -54,16 +54,16 @@ RSpec.describe Campaign, :type => :model do
   end
 
   describe ".closed_campaigns" do
-    it "fetches campaigns that have been fully funded or has expired" do
+    it "fetches campaigns that have expired" do
       create(:campaign, expired: true, fully_funded: false)
       create(:campaign, expired: false, fully_funded: false)
       create(:campaign, expired: false, fully_funded: true)
       create(:campaign, expired: false, fully_funded: false)
-      create(:campaign, expired: false, fully_funded: true)
+      create(:campaign, expired: true, fully_funded: true)
 
       active_campaigns = Campaign.closed_campaigns
 
-      expect(active_campaigns.length).to be 3
+      expect(active_campaigns.length).to be 2
     end
   end
 
