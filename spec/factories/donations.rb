@@ -5,5 +5,6 @@ FactoryGirl.define do
     phone "MyString"
     email { Faker::Internet.email }
     message "MyText"
+    accepted false
   end
 end

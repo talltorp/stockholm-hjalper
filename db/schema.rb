@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121102731) do
+ActiveRecord::Schema.define(version: 20160121121350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,11 +75,12 @@ ActiveRecord::Schema.define(version: 20160121102731) do
     t.string   "phone"
     t.string   "email"
     t.text     "message"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "campaign_id"
     t.string   "requested_pickup_time"
     t.string   "confirmation_code"
+    t.boolean  "accepted",              default: false, null: false
   end
 
   add_index "donations", ["campaign_id"], name: "index_donations_on_campaign_id", using: :btree
