@@ -80,8 +80,13 @@
         <%= simple_form_for(@donation, url: campaign_donations_path(@campaign)) do |f| %>
           <h2>
           </h2>
-          <div class="one-input">
-            <%= f.input :name, value: @donation.name %>
+          <div class="two-inputs">
+            <div class="first">
+              <%= f.input :name, value: @donation.name %>
+            </div>
+            <div class="second">
+              <%= f.input :organisation, value: @donation.name, label: t("campaigns.show.field_organisation") %>
+            </div>
           </div>
           <div class="two-inputs">
             <div class="first">

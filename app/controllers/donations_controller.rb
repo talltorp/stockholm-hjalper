@@ -46,6 +46,7 @@ class DonationsController < ApplicationController
           :email,
           :message,
           :donation_amount,
+          :organisation,
         )
   end
 end

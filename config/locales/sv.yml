@@ -13,6 +13,7 @@ sv:
       title_amount_before_pickup: "Vi hämtar upp om ni skänker fler än %{amount_before_pickup}"
     show:
       current_funding: "%{total_donation_amount} av %{funding_goal}"
+      field_organisation: Företag/Organisation
       form_submit_button: Skicka
       label_contact_person: Kontaktperson
       label_drop_off_locations: Avlämningsplatser
@@ -43,6 +44,7 @@ sv:
       label_donation_email: Email
       label_donation_message: Meddelande
       label_donation_name: Namn
+      label_donation_organisation: Företag/Organisation
       label_donation_phone: Telefon
       label_donation_requested_pickup_time: Vald upphämtningdtid
       link_click_to_confirm: Klicka här för att acceptera donationen

@@ -17,6 +17,7 @@ RSpec.describe CampaignMailer, :type => :mailer do
       donation = create(:donation, {
         donation_amount: 2,
         name: "Good person",
+        organisation: "good org",
         phone: "0707111222",
         email: "goodperson@example.com",
         message: "this is the message",
@@ -28,6 +29,7 @@ RSpec.describe CampaignMailer, :type => :mailer do
 
       expect(mail.body).to match("#{ donation.donation_amount }")
       expect(mail.body).to match(donation.name)
+      expect(mail.body).to match(donation.organisation)
       expect(mail.body).to match(donation.phone)
       expect(mail.body).to match(donation.email)
       expect(mail.body).to match(donation.message)
