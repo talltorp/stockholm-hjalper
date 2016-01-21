@@ -14,6 +14,13 @@ feature "donating to a campaign" do
     click_button "Skicka"
     campaign.reload
 
+    simulate_pm_clicking_confirmation_link_in_email(campaign)
+
     expect(campaign.fully_funded?).to be true
+  end
+
+  def simulate_pm_clicking_confirmation_link_in_email(campaign)
+    donation = campaign.donations.last
+    visit "/donations/#{ donation.id }/confirm/#{ donation.confirmation_code }"
   end
 end
