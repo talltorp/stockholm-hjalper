@@ -37,3 +37,8 @@
   </b>
   <%= @donation.message %>
 </p>
+<p>
+  <%= link_to(t("email.notify_pm_of_donation.link_click_to_confirm"),
+              @confirmation_url
+    )%>
+</p>

@@ -32,6 +32,7 @@ RSpec.describe CampaignMailer, :type => :mailer do
       expect(mail.body).to match(donation.email)
       expect(mail.body).to match(donation.message)
       expect(mail.body).to match(donation.requested_pickup_time)
+      expect(mail.body).to match("#{donation_url(donation)}/confirm/#{donation.confirmation_code}")
     end
   end
 

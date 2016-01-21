@@ -39,6 +39,7 @@ sv:
       label_donation_name: Namn
       label_donation_phone: Telefon
       label_donation_requested_pickup_time: Vald upphämtningdtid
+      link_click_to_confirm: Klicka här för att acceptera donationen
     send_thank_you_to_donor:
       subject: Tack för donationen!
       header: Tack för att du hjälper!
