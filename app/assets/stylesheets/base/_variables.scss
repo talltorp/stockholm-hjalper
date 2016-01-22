@@ -1,6 +1,8 @@
 // Typography
-$base-font-family: $helvetica;
-$heading-font-family: $base-font-family;
+$roboto-font: "Roboto Slab";
+$work-sans-font: "Work Sans";
+$base-font-family: $work-sans-font, $helvetica;
+$heading-font-family: $roboto-font, $helvetica;
 
 // Font Sizes
 $base-font-size: 1em;

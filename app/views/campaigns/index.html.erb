@@ -11,12 +11,12 @@
           <h2>
             <%= campaign.title %>
           </h2>
-          <p>
+          <h3>
             <%= campaign.ingress %>
-          </p>
+          </h3>
         </div>
         <div class="funding-progress">
-          <div>
+          <div class="progress-graph">
             <canvas
               id="campaign-<%= campaign.id %>"
               width="30"
@@ -26,13 +26,15 @@
               data-funding-left="<%= (campaign.funding_goal - campaign.total_donation_amount) %>"
               ></canvas>
           </div>
-          <div>
-            <% if campaign.amount_before_pickup %>
-              <%= t("campaigns.index.title_amount_before_pickup", {
-                amount_before_pickup: campaign.amount_before_pickup
-              }) %>
-            <% end %>
-          </div>
+          <% if campaign.amount_before_pickup %>
+            <div class="pickup-message">
+              <h4>
+                <%= t("campaigns.index.title_amount_before_pickup", {
+                  amount_before_pickup: campaign.amount_before_pickup
+                }) %>
+              </h4>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -51,15 +53,15 @@
           <h2>
             <%= campaign.title %>
           </h2>
-          <p>
+          <h3>
             <%= campaign.ingress %>
-          </p>
+          </h3>
         </div>
         <div class="funding-progress">
           <% if campaign.fully_funded? %>
             <%= image_tag "funding_completed" %>
           <% else %>
-            <div>
+            <div class="progress-graph">
               <canvas
                 id="campaign-<%= campaign.id %>"
                 width="30"
@@ -68,9 +70,6 @@
                 data-funding-current="<%= campaign.total_donation_amount %>"
                 data-funding-left="<%= (campaign.funding_goal - campaign.total_donation_amount) %>"
                 ></canvas>
-            </div>
-            <div>
-              <%= campaign.total_donation_amount %> / <%= campaign.funding_goal %>
             </div>
           <% end %>
         </div>
