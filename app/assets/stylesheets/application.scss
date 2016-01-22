@@ -10,6 +10,7 @@
 @import "refills/footer";
 
 $campaign-index-background-color: #f2f2f2;
+$campaign-index-header-color: #686868;
 
 section {
   @include outer-container();
@@ -20,6 +21,7 @@ section {
 
   h1 {
     @include pad(2em default default default);
+    color: $campaign-index-header-color;
     font-size: 1.75em;
     font-weight: bold;
     margin-bottom: 0px;
@@ -39,6 +41,7 @@ section {
 
   h4 {
     @include pad();
+    color: $campaign-index-header-color;
     border-left: 1px solid $medium-gray;
     font-family: $base-font-family;
     font-size: 0.688em;
