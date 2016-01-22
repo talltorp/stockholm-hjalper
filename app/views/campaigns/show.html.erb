@@ -30,17 +30,17 @@
     <h1>
       <%= @campaign.title %>
     </h1>
-    <div class="preable">
+    <h2>
       <%= @campaign.ingress %>
-    </div>
+    </h2>
     <div class="body-content">
       <%= simple_format(@campaign.body_text) %>
     </div>
     <div class="contact-person">
       <div class="contact-name">
-        <h2>
+        <h3>
           <%= t("campaigns.show.label_contact_person") %>
-        </h2>
+        </h3>
         <div>
           <%= @campaign.contact_person %>
         </div>
@@ -51,9 +51,9 @@
     <div class="drop-off-locations">
       <% if @campaign.drop_off_locations.present? %>
         <div>
-          <h2>
+          <h3>
             <%= t("campaigns.show.label_drop_off_locations") %>
-          </h2>
+          </h3>
           <% @campaign.drop_off_locations.each do | location | %>
             <div>
               <%= location.name %>
@@ -69,49 +69,69 @@
       <% end %>
     </div>
     <% unless @campaign.expired %>
-      <% if @campaign.amount_before_pickup %>
-        <h2>
-          <%= t("campaigns.show.title_amount_before_pickup", {
-            amount_before_pickup: @campaign.amount_before_pickup
-          }) %>
-        </h2>
-      <% end %>
       <div class="donation-form">
+        <% if @campaign.amount_before_pickup %>
+          <h2>
+            <%= t("campaigns.show.title_amount_before_pickup", {
+              amount_before_pickup: @campaign.amount_before_pickup
+            }) %>
+          </h2>
+        <% end %>
         <%= simple_form_for(@donation, url: campaign_donations_path(@campaign)) do |f| %>
           <h2>
           </h2>
           <div class="two-inputs">
             <div class="first">
-              <%= f.input :name, value: @donation.name %>
+              <%= f.input :name,
+                value: @donation.name,
+                label: false,
+                placeholder: t("campaigns.show.field_name") %>
             </div>
             <div class="second">
-              <%= f.input :organisation, value: @donation.name, label: t("campaigns.show.field_organisation") %>
+              <%= f.input :organisation,
+                value: @donation.name,
+                label: false,
+                placeholder: t("campaigns.show.field_organisation") %>
             </div>
           </div>
           <div class="two-inputs">
             <div class="first">
-              <%= f.input :phone, as: :tel, value: @donation.phone %>
+              <%= f.input :phone,
+                as: :tel,
+                value: @donation.phone,
+                label: false,
+                placeholder: t("campaigns.show.field_phone") %>
             </div>
             <div class="second">
-              <%= f.input :email, as: :email, value: @donation.email %>
+              <%= f.input :email,
+                as: :email,
+                value: @donation.email,
+                label: false,
+                placeholder: t("campaigns.show.field_email") %>
             </div>
           </div>
           <div class="two-inputs">
             <div class="first">
               <% if @campaign.available_pickup_times.present? %>
-                <%= label_tag("requested_pickup_time", t("campaigns.show.requested_pickup_time")) %>
                 <%= select_tag "requested_pickup_time",
                   options_from_collection_for_select(@campaign.available_pickup_times, "id", "pickup_as_string"),
-                  prompt: "-----------------"
+                  prompt: t("campaigns.show.requested_pickup_time")
                 %>
               <% end %>
             </div>
             <div class="second">
-              <%= f.input :donation_amount, as: :integer, value: @donation.donation_amount %>
+              <%= f.input :donation_amount,
+                as: :integer,
+                value: @donation.donation_amount,
+                label: false,
+                placeholder: t("campaigns.show.field_amount") %>
             </div>
           </div>
           <div class="one-input">
-            <%= f.input :message, value: @donation.message %>
+            <%= f.input :message,
+              value: @donation.message,
+              label: false,
+              placeholder: t("campaigns.show.field_message") %>
           </div>
           <div class="submit-input">
             <%= f.button :submit, value: t("campaigns.show.form_submit_button") %>

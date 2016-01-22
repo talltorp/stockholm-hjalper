@@ -92,10 +92,30 @@ section {
   article {
     @include outer-container();
     @include pad(1em);
+
+    color: #828282;
   }
 
   h1 {
-    font-size: 2em;
+    color: #50d1f9;
+    font-size: 3em;
+  }
+
+  h2 {
+    color: #686868;
+    font-family: $base-font-family;
+    font-size: 1.183em;
+  }
+
+  h3 {
+    color: #686868;
+    font-family: $base-font-family;
+    font-size: 1.063em;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1.063em;
   }
 
   .funding-progress {
@@ -118,10 +138,6 @@ section {
     @include media($medium-screen-up) {
       @include span-columns(10);
     }
-  }
-
-  .preable {
-    font-style: italic;
   }
 
   .contact-person {
@@ -154,6 +170,8 @@ section {
     @include media($medium-screen-up) {
       @include span-columns(10 of 10);
     }
+
+    padding-top: 2em;
 
     .two-inputs {
       @include media($large-screen-up) {

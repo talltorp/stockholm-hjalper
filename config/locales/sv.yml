@@ -13,7 +13,12 @@ sv:
       title_amount_before_pickup: "Vi hämtar upp om ni skänker fler än %{amount_before_pickup}"
     show:
       current_funding: "%{total_donation_amount} av %{funding_goal}"
+      field_amount: Antal*
+      field_email: E-post*
       field_organisation: Företag/Organisation
+      field_message: Meddelande
+      field_name: Namn*
+      field_phone: Telefon*
       form_submit_button: Skicka
       label_contact_person: Kontaktperson
       label_drop_off_locations: Avlämningsplatser
