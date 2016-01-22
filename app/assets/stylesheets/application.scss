@@ -13,6 +13,7 @@ $campaign-index-background-color: #f2f2f2;
 $campaign-index-header-color: #686868;
 
 section {
+  @include pad(0 default 0 default);
   @include outer-container();
 }
 
@@ -132,6 +133,11 @@ section {
 
     @include media($medium-screen-up) {
       @include span-columns(2);
+    }
+
+    @include media($small-screen-up) {
+      padding-bottom: 1em;
+      text-align: left;
     }
   }
 
