@@ -56,9 +56,10 @@ header.navigation {
       @include media ($horizontal-bar-mode) {
         height: 13em;
         max-height: $navigation-height;
+        width: 25em;
       }
-      max-height: $navigation-item-height;
       padding: 0.8em 0;
+      width: 10em;
     }
   }
 
