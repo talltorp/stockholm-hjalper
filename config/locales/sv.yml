@@ -30,8 +30,8 @@ sv:
   common:
     footer:
       organisation_name: Stockholm Hjälper
-      contact_phone: "Kontakta oss: 08-55511100"
-      contact_email: "Email: info@stockholmhjalper.se"
+      contact_phone: "08-55511100"
+      contact_email: "info@stockholmhjalper.se"
     header:
       menu_item:
         about_us: Om organisationen
