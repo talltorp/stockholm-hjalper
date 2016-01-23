@@ -4,5 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def about
+    set_default_metatags
+  end
+
+  private
+  def set_default_metatags
+    set_meta_tags og: {
+			title:    t("common.og_title"),
+			url:      root_url,
+			image:    og_image_url
+		}
+  end
+
+  def og_image_url
+    "http://www.stockholmhjalper.se/stockholm-hjalper-logo.png"
   end
 end

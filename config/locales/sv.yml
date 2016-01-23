@@ -28,6 +28,7 @@ sv:
       requested_pickup_time: Upphämtningsdag/tid
       title_amount_before_pickup: "Om ni skänker fler än %{amount_before_pickup}, fyll i formuläret här under"
   common:
+    og_title: Stockholm Hjälper
     footer:
       organisation_name: Stockholm Hjälper
       contact_phone: "08-55511100"
