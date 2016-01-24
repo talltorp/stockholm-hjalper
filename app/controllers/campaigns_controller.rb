@@ -17,9 +17,10 @@ class CampaignsController < ApplicationController
 
   def set_show_metatags
     set_meta_tags og: {
-			title:    @campaign.title,
-			url:      campaign_url(@campaign),
-			image:    og_image_url
+			title:        @campaign.title,
+			description:  @campaign.ingress,
+			url:          campaign_url(@campaign),
+			image:        og_image_url
 		}
   end
 end

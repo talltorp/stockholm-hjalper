@@ -10,9 +10,10 @@ class ApplicationController < ActionController::Base
   private
   def set_default_metatags
     set_meta_tags og: {
-			title:    t("common.og_title"),
-			url:      root_url,
-			image:    og_image_url
+			title:        t("common.og_title"),
+      description:  t("common.og_description"),
+			url:          root_url,
+			image:        og_image_url
 		}
   end
 
